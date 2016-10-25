@@ -17,10 +17,12 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "zero"
-sudo scutil --set HostName "zero"
-sudo scutil --set LocalHostName "zero"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "zero"
+read -p "Computer Name? " name
+sudo scutil --set ComputerName "$name"
+sudo scutil --set HostName "$name"
+sudo scutil --set LocalHostName "$name"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$name"
+echo "Setting computer name to $name..."
 
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
@@ -189,7 +191,8 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 ###############################################################################
-# Screen                                                                      #
+# Screen                             
+echo "Setting the screen options..."
 ###############################################################################
 
 # Require password immediately after sleep or screen saver begins
@@ -212,7 +215,8 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 2
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
 ###############################################################################
-# Finder                                                                      #
+# Finder         
+echo "Setting the Finder options..." 
 ###############################################################################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
@@ -325,6 +329,7 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
+echo "Setting the dock, dashboard, and hot corners..."
 ###############################################################################
 
 # Enable highlight hover effect for the grid view of a stack (Dock)
@@ -417,6 +422,7 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
 # Safari & WebKit                                                             #
+echo "Setting the Safari options..."
 ###############################################################################
 
 # Privacy: don’t send search queries to Apple
@@ -499,6 +505,7 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 
 ###############################################################################
 # Mail                                                                        #
+echo "Setting the Mail options..."
 ###############################################################################
 
 # Disable send and reply animations in Mail.app
@@ -524,6 +531,7 @@ defaults write com.apple.mail SpellCheckingBehavior -string "NoSpellCheckingEnab
 
 ###############################################################################
 # Spotlight                                                                   #
+echo "Setting the Spotlight options..."
 ###############################################################################
 
 # Hide Spotlight tray-icon (and subsequent helper)
@@ -572,6 +580,7 @@ sudo mdutil -E / > /dev/null
 
 ###############################################################################
 # Terminal & iTerm 2                                                          #
+echo "Setting Terminal and iTerm options..."
 ###############################################################################
 
 # Only use UTF-8 in Terminal.app
@@ -644,6 +653,7 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
 ###############################################################################
 # Time Machine                                                                #
+echo "Setting other options..."
 ###############################################################################
 
 # Prevent Time Machine from prompting to use new hard drives as backup volume
@@ -780,6 +790,7 @@ defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 ###############################################################################
 # Kill affected applications                                                  #
+echo "Killing the affrected applications..."
 ###############################################################################
 
 for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
