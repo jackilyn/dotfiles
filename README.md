@@ -22,8 +22,3 @@ When setting up a new Mac, you may want to set some macOS defaults:
 ```bash
 ./.macOS
 ```
-
-
-```bash
-./.macOS-mini
-```

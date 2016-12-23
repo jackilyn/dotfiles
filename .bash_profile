@@ -13,6 +13,9 @@ unset file;
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+battery_status() {
+  /usr/local/bin/battery-status
+}
 
 # Custom bash prompt via kirsle.net/wizards/ps1.html
 export PS1="\[$(tput setaf 6)\]\w\[$(tput setaf 3)\]\$(parse_git_branch) \[$(tput sgr0)\]$ "
