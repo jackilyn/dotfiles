@@ -9,6 +9,9 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
+bind "set completion-ignore-case on"
+bind "set show-all-if-ambiguous on"
+
 # Bash Prompt
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
