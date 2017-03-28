@@ -22,3 +22,5 @@ When setting up a new Mac, you may want to set some macOS defaults:
 ```bash
 ./.macOS
 ```
+
+[Icons](https://github.com/synthagency/icons-flat-osx)
