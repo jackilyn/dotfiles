@@ -50,7 +50,7 @@ alias week='date +%V'
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update; brew cask cleanup; sh ~/Dropbox/Apps/iso-backup.sh'
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update; brew cask cleanup'
 alias isobackup='sh ~/Dropbox/Apps/iso-backup.sh'
 
 # IP addresses
