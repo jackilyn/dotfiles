@@ -16,6 +16,8 @@ alias p="cd ~/Projects"
 alias g="git"
 alias h="history"
 alias j="jobs"
+alias movetv="mv -v ~/Downloads/TV/* /Volumes/media/Downloads/temp && mv /Volumes/media/Downloads/temp/* /Volumes/media/Downloads/TV"
+alias movemovies="mv -v ~/Movies/* /Volumes/media/Downloads/temp && mv /Volumes/media/Downloads/temp/* /Volumes/media/Downloads/Movies"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
